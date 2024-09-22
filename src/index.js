@@ -1,13 +1,11 @@
-require('dotenv').config()
-const express = require('express')
-const app = express()
+// require ('dotenv').config({path:'./env'})
+// import express from "express";
+import connectDB from "./db/index.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-app.get('/twitter', (req, res) => {
-    res.send('Hello World from twitters!')
-})
-app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+// dotenv.config({
+//   path: "./env",
+// });
+console.log(process.env.MONGO_URI)
+connectDB();
